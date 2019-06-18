@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/consumer/test")
+@RequestMapping(value = "/consumer")
 public class ConsumerController {
 
     static Logger log = LogManager.getLogger(ConsumerController.class);
@@ -17,7 +17,7 @@ public class ConsumerController {
     UserClient userClient;
 
 
-    @RequestMapping(value = "/order/getById" )
+    @RequestMapping(value = "/user/getById" )
     public String getById(){
         return userClient.getOne(8L);
     }
