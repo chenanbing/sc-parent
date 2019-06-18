@@ -6,11 +6,12 @@ spring:
       server:
         git:
           uri: https://github.com/chenanbing/sc-config-file.git
-          search-paths:
-          - user
+          search-paths: /user
+#          search-paths:
+#          - user
       label: master
-#      username: chenanbing
-#      password: cab19891023
+      username: chenanbing
+      password: cab19891023
 
 server:
   port: 8862
