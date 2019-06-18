@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface  UserClient {
 
     @RequestMapping(value = "/getById")
-    public String get(@RequestParam("id") Long id);
+    public String get(@RequestParam(value="id",required=false) Long id);
 
 }

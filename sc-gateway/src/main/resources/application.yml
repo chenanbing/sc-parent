@@ -15,12 +15,13 @@ zuul:
   routes:
     user:
       path: /user/**
-      serviceId: user-service
+      serviceId: user-client
+      strip-prefix: false
   host:
     connect-timeout-millis: 10000
     socket-timeout-millis: 10000
 
-user-service:
+user-client:
   ribbon:
     ReadTimeout: 10000
     ConnectTimeout: 10000
