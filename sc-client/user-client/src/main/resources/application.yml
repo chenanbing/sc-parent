@@ -1,0 +1,55 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 7001
+spring:
+  application:
+    name: user-client
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 7000
+        readTimeout: 7000
+  hystrix:
+    enabled: true
+
+
+#ribbon重试配置
+#  配置feign超时后ribbon不起作用
+#user-service:
+#  ribbon:
+#    #配置首台服务器重试1次
+#    MaxAutoRetries: 1
+#    #配置其他服务器重试两次
+#    MaxAutoRetriesNextServer: 2
+#    #链接超时时间
+#    ConnectTimeout: 500
+#    #请求处理时间
+#    ReadTimeout: 2000
+#    #每个操作都开启重试机制
+#    OkToRetryOnAllOperations: false
+
+#ribbon:
+#  #配置首台服务器重试1次
+#  MaxAutoRetries: 1
+#  #配置其他服务器重试两次
+#  MaxAutoRetriesNextServer: 2
+#  #链接超时时间
+#  ConnectTimeout: 2000
+#  #请求处理时间
+#  ReadTimeout: 2000
+#  #每个操作都开启重试机制
+#  OkToRetryOnAllOperations: false
+
+#配置断路器超时时间，默认是1000（1秒）
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 8000

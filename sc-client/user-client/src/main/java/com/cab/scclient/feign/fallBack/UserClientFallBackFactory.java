@@ -1,26 +1,24 @@
-package com.cab.scconsumer.feign.fallBack;
+package com.cab.scclient.feign.fallBack;
 
-import com.cab.scconsumer.feign.UserClient;
+import com.cab.scclient.feign.UserClient;
 import feign.hystrix.FallbackFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserClientFallBack implements FallbackFactory<UserClient> {
+public class UserClientFallBackFactory implements FallbackFactory<UserClient> {
 
-    static Logger log = LogManager.getLogger(UserClientFallBack.class);
+    static Logger log = LogManager.getLogger(UserClientFallBackFactory.class);
 
     @Override
     public UserClient create(Throwable throwable) {
         return new UserClient() {
-
-
             @Override
-            public String getOne(Long id) {
+            public String get(Long id) {
+                log.error("-------UserClientFallBackFactory------get--------");
                 return null;
             }
-
         };
 
     }

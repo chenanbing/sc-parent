@@ -12,7 +12,19 @@ public class UserController {
 
     @RequestMapping(value = "/getById")
     public String get(Long id){
+        try {
+            Thread.sleep(6000);
+        }catch (Exception e){
+
+        }
+        System.out.println("USER"+id);
+
+        String str = "USER"+id;
+
+//        Integer.parseInt(str);
+
         return "USER"+id;
+
     }
 
 }

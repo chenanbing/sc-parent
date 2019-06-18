@@ -1,6 +1,6 @@
-package com.cab.scconsumer.controller;
+package com.cab.scclient.controller;
 
-import com.cab.scconsumer.feign.UserClient;
+import com.cab.scclient.feign.UserClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/consumer")
-public class ConsumerController {
+public class UserClientController {
 
-    static Logger log = LogManager.getLogger(ConsumerController.class);
+    static Logger log = LogManager.getLogger(UserClientController.class);
 
     @Autowired
     UserClient userClient;
@@ -19,6 +18,6 @@ public class ConsumerController {
 
     @RequestMapping(value = "/user/getById" )
     public String getById(){
-        return userClient.getOne(8L);
+        return userClient.get(8L);
     }
 }
