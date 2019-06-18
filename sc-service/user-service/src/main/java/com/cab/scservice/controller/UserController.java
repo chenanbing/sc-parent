@@ -14,11 +14,11 @@ public class UserController {
 
     private static Logger log = LogManager.getLogger(UserController.class);
 
-//    @Autowired
-//    private ConstantConfig constantConfig;
+    @Autowired
+    private ConstantConfig constantConfig;
 
-    @Value("${version}")
-    private String version;
+
+
 
     @RequestMapping(value = "/getById")
     public String get(@RequestParam(value="id",required=false) Long id){
@@ -33,7 +33,7 @@ public class UserController {
 
 //        Integer.parseInt(str);
 
-        return "USER"+id+version;
+        return "USER"+id+constantConfig.getVersion();
 
     }
 
