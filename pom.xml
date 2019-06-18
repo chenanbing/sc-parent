@@ -31,6 +31,7 @@
         <module>sc-service</module>
         <module>sc-client</module>
         <module>sc-gateway</module>
+        <module>sc-config</module>
     </modules>
 
     <dependencies>
