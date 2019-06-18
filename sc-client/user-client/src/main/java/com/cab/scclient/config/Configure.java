@@ -1,5 +1,7 @@
 package com.cab.scclient.config;
 
+import feign.Retryer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
@@ -15,7 +17,6 @@ feign重试
 2、配置Retryer
 因为用了feign肯定会用到ribbon，所以feign的重试机制相对来说比较鸡肋，自己feignClient的时候一般会关闭该功能。
     */
-
 //    @Bean
 //    public Retryer feignRetryer(){
 //        Retryer retryer = new Retryer.Default(100, 1000, 4);
