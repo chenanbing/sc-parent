@@ -1,0 +1,23 @@
+server:
+  port: 8862
+
+spring:
+  application:
+    name: consumer
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 7000
+        readTimeout: 7000
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 8000
