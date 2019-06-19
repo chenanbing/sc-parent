@@ -43,11 +43,11 @@ public class UserClientController {
         return true;
     }
 
-    @RequestMapping(value = "/user/mySend1")
+    @RequestMapping(value = "/user/mySend2")
     public void send() {
         String context = "hello " + new Date();
         System.out.println("Sender : " + context);
 // 调用 发送消息的方法
-        this.rabbitTemplate.convertAndSend("hello", context);
+        this.rabbitTemplate.convertAndSend("myQueue", context);
     }
 }
