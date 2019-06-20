@@ -26,11 +26,12 @@ spring:
                 password: cab19891023
                 virtual-host: test
       bindings:
-        testInPut:
-          destination: testExchange
-          content-type: application/json
-          group: groupA
-          default-binder: test
+        input1:
+          destination: tttt
+          group: inputGroup
+        input2:
+          destination: tttt2
+          group: inputGroup
 eureka:
   client:
     serviceUrl:

@@ -5,9 +5,15 @@ import org.springframework.messaging.MessageChannel;
 
 public interface MqMessageSource  {
 
-    String TEST_OUT_PUT = "testOutPut";
+    String OUTPUT1 = "output1";
 
-    @Output(TEST_OUT_PUT)
-    MessageChannel testOutPut();
+    String OUTPUT2 = "output2";
+
+    @Output(OUTPUT1)
+    MessageChannel output1();
+
+    @Output(OUTPUT2)
+    MessageChannel output2();
+
 }
 

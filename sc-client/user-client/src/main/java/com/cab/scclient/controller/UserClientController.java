@@ -3,6 +3,7 @@ package com.cab.scclient.controller;
 import com.cab.scclient.feign.UserClient;
 import com.cab.scclient.mq.stream.MqMessageProducer;
 import com.cab.scclient.mq.amqp.AmqpProducer;
+import com.cab.scclient.mq.stream.MqMessageSource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +36,19 @@ public class UserClientController {
      * 3.默认发送消息，会向所有消费者组推送消息，如果一个有多个消费者 在 同一个消费者组里，消息会轮询发给这个组里的消费者
      * @return
      */
-    @RequestMapping(value = "/user/mySend")
-    public boolean mySend(){
-        mqMessageProducer.sendMsg("asdfasdfasdfasdfddddddd");
+    @RequestMapping(value = "/user/mySend1")
+    public boolean mySend1(){
+        mqMessageProducer.sendMsg("asdfasdfasdfasdfddddddd", MqMessageSource.OUTPUT1);
         return true;
     }
 
     @RequestMapping(value = "/user/mySend2")
+    public boolean mySend2(){
+        mqMessageProducer.sendMsg("asdfasdfasdfasdfddddddd", MqMessageSource.OUTPUT2);
+        return true;
+    }
+
+    @RequestMapping(value = "/user/mySend")
     public void send() {
         this.amqpProducer.sendMsg();
     }

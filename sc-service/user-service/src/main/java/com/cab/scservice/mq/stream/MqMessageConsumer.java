@@ -6,11 +6,24 @@ import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
 
 @Component
-@EnableBinding(value = {MqMessageSource.class})
+@EnableBinding(value = {MqMessageSink.class})
 public class MqMessageConsumer {
 
-    @StreamListener(MqMessageSource.TEST_IN_PUT)
-    public void messageInPut(Message<String> message) {
-        System.err.println(" 消息接收成功：" + message.getPayload());
+    @StreamListener(MqMessageSink.INPUT1)
+    public synchronized void receive1(String message) {
+        System.out.println("******************");
+        System.out.println("At Sink1");
+        System.out.println("******************");
+        System.out.println("Received message " + message);
     }
+
+    @StreamListener(MqMessageSink.INPUT2)
+    public synchronized void receive2(String message) {
+        System.out.println("******************");
+        System.out.println("At Sink2");
+        System.out.println("******************");
+        System.out.println("Received message " + message);
+    }
+
+
 }

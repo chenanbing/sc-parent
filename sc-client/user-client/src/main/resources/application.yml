@@ -29,10 +29,12 @@ spring:
                 password: cab19891023
                 virtual-host: test
       bindings:
-        testOutPut:
-          destination: testExchange  #exchange名称，交换模式默认是topic
-          content-type: application/json
-          default-binder: test
+        output1:
+          destination: tttt
+          contentType: application/json #约定消息的内容编码格式
+        output2:
+          destination: tttt2
+          contentType: application/json #约定消息的内容编码格式
 feign:
   client:
     config:
