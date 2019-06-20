@@ -4,6 +4,14 @@ server:
 spring:
   application:
     name: user-service
+  # amqp配置（stream也可用）
+  rabbitmq:
+    host: 10.11.0.100
+    port: 5672
+    username: cab
+    password: cab19891023
+    virtual-host: test
+  # stream 配置
   cloud:
     stream:
       binders:
@@ -19,9 +27,9 @@ spring:
                 virtual-host: test
       bindings:
         testInPut:
-          destination: testRabbit
-          group: groupA
+          destination: testExchange
           content-type: application/json
+          group: groupA
           default-binder: test
 eureka:
   client:

@@ -1,15 +1,13 @@
 package com.cab.scclient.controller;
 
 import com.cab.scclient.feign.UserClient;
-import com.cab.scclient.mq.MqMessageProducer;
+import com.cab.scclient.mq.stream.MqMessageProducer;
+import com.cab.scclient.mq.amqp.AmqpProducer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Date;
 
 @RestController
 public class UserClientController {
@@ -23,7 +21,7 @@ public class UserClientController {
     MqMessageProducer mqMessageProducer;
 
     @Autowired
-    private AmqpTemplate rabbitTemplate;
+    AmqpProducer amqpProducer;
 
 
     @RequestMapping(value = "/user/getById" )
@@ -45,9 +43,6 @@ public class UserClientController {
 
     @RequestMapping(value = "/user/mySend2")
     public void send() {
-        String context = "hello " + new Date();
-        System.out.println("Sender : " + context);
-// 调用 发送消息的方法
-        this.rabbitTemplate.convertAndSend("myQueue", context);
+        this.amqpProducer.sendMsg();
     }
 }

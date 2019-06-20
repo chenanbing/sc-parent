@@ -1,4 +1,4 @@
-package com.cab.scclient.mq;
+package com.cab.scclient.mq.stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;

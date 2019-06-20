@@ -7,6 +7,14 @@ server:
 spring:
   application:
     name: user-client
+  # amqp配置（stream也可用）
+  rabbitmq:
+    host: 10.11.0.100
+    port: 5672
+    username: cab
+    password: cab19891023
+    virtual-host: test
+  # stream 配置
   cloud:
     stream:
       binders:
@@ -20,13 +28,9 @@ spring:
                 username: cab
                 password: cab19891023
                 virtual-host: test
-      #      bindings:
-      #        myTest:
-      #          group: groupA
-      #          content-type: application/json
       bindings:
         testOutPut:
-          destination: testRabbit  #exchange名称，交换模式默认是topic
+          destination: testExchange  #exchange名称，交换模式默认是topic
           content-type: application/json
           default-binder: test
 feign:
