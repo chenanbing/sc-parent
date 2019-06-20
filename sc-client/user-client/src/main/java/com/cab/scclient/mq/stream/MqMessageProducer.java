@@ -11,8 +11,26 @@ public class MqMessageProducer {
     @Autowired
     private BinderAwareChannelResolver resolver;
 
+    @Autowired
+    private MqMessageSource mqMessageSource;
+
+
     public void sendMsg(String msg, String target) {
         resolver.resolveDestination(target).send(MessageBuilder.withPayload(msg).build());
     }
+
+
+    public void sendMsg1(String msg) {
+        mqMessageSource.output1().send(
+                MessageBuilder.withPayload(msg).build());
+    }
+
+    public void sendMsg2(String msg) {
+        mqMessageSource.output2().send(
+                MessageBuilder.withPayload(msg).build());
+    }
+
+
+
 
 }

@@ -38,13 +38,15 @@ public class UserClientController {
      */
     @RequestMapping(value = "/user/mySend1")
     public boolean mySend1(){
-        mqMessageProducer.sendMsg("asdfasdfasdfasdfddddddd", MqMessageSource.OUTPUT1);
+//        mqMessageProducer.sendMsg("asdfasdfasdfasdfddddddd", MqMessageSource.OUTPUT1);
+        mqMessageProducer.sendMsg1("asdfasdfasdfasdfddddddd");
         return true;
     }
 
     @RequestMapping(value = "/user/mySend2")
     public boolean mySend2(){
-        mqMessageProducer.sendMsg("asdfasdfasdfasdfddddddd", MqMessageSource.OUTPUT2);
+//        mqMessageProducer.sendMsg("asdfasdfasdfasdfddddddd", MqMessageSource.OUTPUT2);
+        mqMessageProducer.sendMsg2("asdfasdfasdfasdfddddddd");
         return true;
     }
 
