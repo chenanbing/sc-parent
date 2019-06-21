@@ -65,6 +65,13 @@ public class UserClientController {
 
     @RequestMapping(value = "/user/mySend")
     public void send() {
+        try{
+            //睡5秒，网关Hystrix3秒超时，会触发熔断降级操作
+            Thread.sleep(5000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         this.amqpProducer.sendMsg();
     }
 }
