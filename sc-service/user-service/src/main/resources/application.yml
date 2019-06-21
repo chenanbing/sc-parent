@@ -32,6 +32,12 @@ spring:
         input2:
           destination: tttt2
           group: inputGroup
+        output3:
+          destination: tttt3
+          contentType: application/json #约定消息的内容编码格式
+        input3:
+          destination: tttt3
+          group: inputGroup
 eureka:
   client:
     serviceUrl:

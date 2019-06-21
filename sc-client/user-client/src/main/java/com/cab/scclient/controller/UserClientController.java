@@ -50,6 +50,19 @@ public class UserClientController {
         return true;
     }
 
+    @RequestMapping(value = "/user/mySend3")
+    public boolean mySend3(){
+        mqMessageProducer.sendMsg("asdfasdfasdfasdfddddddd", MqMessageSource.OUTPUT1);
+        return true;
+    }
+
+    @RequestMapping(value = "/user/mySend4")
+    public boolean mySend4(){
+        mqMessageProducer.sendMsg("asdfasdfasdfasdfddddddd", MqMessageSource.OUTPUT2);
+        return true;
+    }
+
+
     @RequestMapping(value = "/user/mySend")
     public void send() {
         this.amqpProducer.sendMsg();
