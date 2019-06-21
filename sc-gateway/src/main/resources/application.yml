@@ -10,6 +10,8 @@ spring:
         locator:
           enabled: true
           lowerCaseServiceId: true
+      default-filters:
+      - Authorize=true
       routes:
       - id: user
         uri: lb://user-client
@@ -21,6 +23,7 @@ spring:
           args:
             name: fallbackcmd
             fallbackUri: forward:/defaultfallback
+        - Authorize=true
         - StripPrefix=0
       - id: 163                     #网关路由到网易官网
         uri: http://www.163.com/
