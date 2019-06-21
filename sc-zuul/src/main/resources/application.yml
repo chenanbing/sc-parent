@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: sc-gateway
+    name: sc-zuul
 
 eureka:
   client:
