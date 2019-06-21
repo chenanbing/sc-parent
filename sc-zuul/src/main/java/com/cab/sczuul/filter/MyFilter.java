@@ -1,4 +1,4 @@
-package com.cab.scgateway.filter;
+package com.cab.sczuul.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
