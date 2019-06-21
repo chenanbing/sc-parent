@@ -30,10 +30,10 @@ spring:
                 virtual-host: test
       bindings:
         output1:
-          destination: tttt
+          destination: exchange1
           contentType: application/json #约定消息的内容编码格式
         output2:
-          destination: tttt2
+          destination: exchange2
           contentType: application/json #约定消息的内容编码格式
 feign:
   client:
