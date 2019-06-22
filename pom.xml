@@ -30,7 +30,6 @@
         <module>sc-eureka</module>
         <module>sc-service</module>
         <module>sc-client</module>
-        <module>sc-zuul</module>
         <module>sc-config</module>
         <module>sc-gateway</module>
     </modules>
