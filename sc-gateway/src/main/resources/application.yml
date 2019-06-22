@@ -25,8 +25,8 @@ spring:
         - name: RequestRateLimiter
           args:
             key-resolver: '#{@hostAddrKeyResolver}'
-            redis-rate-limiter.replenishRate: 4000
-            redis-rate-limiter.burstCapacity: 5000
+            redis-rate-limiter.replenishRate: 1500
+            redis-rate-limiter.burstCapacity: 3000
         #熔断过滤器
         - name: Hystrix
           args:
