@@ -4,26 +4,35 @@ server:
 spring:
   application:
     name: sc-gateway
+  redis:
+    host: 10.11.0.100
+    port: 6379
+    database: 0
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
           lowerCaseServiceId: true
-      default-filters:
-      - Authorize=true
+#      default-filters:
+#      - Authorize=true
       routes:
       - id: user
         uri: lb://user-client
         predicates:
         - Path=/user/**
         filters:
+        - name: RequestRateLimiter
+          args:
+            key-resolver: '#{@hostAddrKeyResolver}'
+            redis-rate-limiter.replenishRate: 4000
+            redis-rate-limiter.burstCapacity: 5000
         #熔断过滤器
         - name: Hystrix
           args:
             name: fallbackcmd
             fallbackUri: forward:/defaultfallback
-        - Authorize=true
+#        - Authorize=true
         - StripPrefix=0
       - id: 163                     #网关路由到网易官网
         uri: http://www.163.com/
