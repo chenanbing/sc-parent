@@ -1,4 +1,4 @@
-package com.cab.sccommon.beans.dto;
+package com.cab.sccommon.beans.database.dto;
 
 import com.cab.sccommon.beans.entity.User;
 

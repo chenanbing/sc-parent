@@ -1,8 +1,8 @@
-package com.cab.sccommon.beans.entity;
+package com.cab.sccommon.beans.database.view;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class UserVO implements Serializable {
 
     private Long id;
 
