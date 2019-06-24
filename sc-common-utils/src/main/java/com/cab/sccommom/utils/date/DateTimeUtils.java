@@ -15,10 +15,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class DateTimeUtils {
 
-    public final static String patterns_yyyyMMdd = "yyyyMMdd";
+    public final static Locale currentLocate = Locale.TRADITIONAL_CHINESE;
     public final static String pattern_yyyyMMddHHmmss = "yyyy-MM-dd HH:mm:ss";
     public final static String pattern_yyyyMMdd = "yyyy-MM-dd";
-    public final static Locale currentLocate = Locale.TRADITIONAL_CHINESE;
+    public final static String patterns_yyyyMMdd = "yyyyMMdd";
     public final static String pattern_yy_MM_dd = "yy/MM/dd";
     public final static String pattern_yy_MM = "yyyy-MM";
 
