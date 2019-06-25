@@ -1,7 +1,6 @@
-package com.cab.service.user.enumconfig;
+package com.cab.common.base.keys;
 
 
-import com.cab.common.base.config.RedisKey;
 import com.cab.common.base.config.TimeConfig;
 
 /**

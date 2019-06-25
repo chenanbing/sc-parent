@@ -1,6 +1,7 @@
 package com.cab.common.base.request;
 
-import com.cab.common.base.config.ErrorCodeEnum;
+
+import com.cab.common.base.code.ErrorCodeEnum;
 
 import java.io.Serializable;
 
@@ -17,9 +18,7 @@ public class Response<T> implements Serializable {
     public Response(int code, String message, T data) {
         this.code = code;
         this.message = message;
-        if( data!= null){
-            this.data = data;
-        }
+        this.data = data;
     }
 
     public int getCode() {

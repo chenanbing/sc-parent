@@ -1,4 +1,4 @@
-package com.cab.service.user.enumconfig;
+package com.cab.common.beans.database.enums;
 
 /**
  * @Description: 消息推送状态

@@ -1,4 +1,6 @@
-package com.cab.common.base.config;
+package com.cab.common.base.code;
+
+import com.cab.common.base.request.Response;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,4 +48,5 @@ public enum ErrorCodeEnum {
     public static ErrorCodeEnum getErrorCodeEnum(int code){
         return map.get(code);
     }
+
 }

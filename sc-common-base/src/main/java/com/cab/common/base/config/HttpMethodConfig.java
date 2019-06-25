@@ -3,7 +3,7 @@ package com.cab.common.base.config;
 
 /**
  */
-public class HttpMethod {
+public class HttpMethodConfig {
 
     public static final String GET = "GET";
     public static final String POST = "POST";
