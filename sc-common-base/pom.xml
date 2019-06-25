@@ -9,7 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.cab</groupId>
     <artifactId>sc-common-base</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <name>sc-common-base</name>
     <!-- FIXME change it to the project's website -->

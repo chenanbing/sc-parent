@@ -1,14 +1,6 @@
-package com.cab.lib.redis;
-
-import java.util.Arrays;
+package com.cab.common.base.config;
 
 public class RedisKey {
-
-    public static final String EMPTY = "";
-    public static final String DS = ".";
-    public static final String COLON = ":";
-    public static final String UNDERLINE = "_";
-
     private String key;
     private String desc;
     private int expireTime;
@@ -57,22 +49,13 @@ public class RedisKey {
         this.args = args;
     }
 
-    public RedisKey(RedisKeyEnum redisKeyEnum, Object... args) {
-        this.key = redisKeyEnum.getKey();
-        this.desc = redisKeyEnum.getDesc();
-        this.expireTime = redisKeyEnum.getExpireTime();
-        this.args = args;
-    }
-
-
-
     public String get() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(this.getKey());
         if (args == null) {
             return stringBuilder.toString();
         }
-        stringBuilder.append(COLON);
+        stringBuilder.append(BaseConfig.COLON);
         String prefix = BaseConfig.EMPTY;
         for (Object arg : args) {
             if (null == arg) {
@@ -87,13 +70,4 @@ public class RedisKey {
         return stringBuilder.toString();
     }
 
-    @Override
-    public String toString() {
-        return "RedisKey{" +
-                "key='" + key + '\'' +
-                ", desc='" + desc + '\'' +
-                ", expireTime=" + expireTime +
-                ", args=" + Arrays.toString(args) +
-                '}';
-    }
 }
