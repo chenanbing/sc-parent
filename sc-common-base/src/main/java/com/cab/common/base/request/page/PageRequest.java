@@ -1,5 +1,5 @@
 
-package com.cab.common.beans.base.page;
+package com.cab.common.base.request.page;
 
 import java.io.Serializable;
 

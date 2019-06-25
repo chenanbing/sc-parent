@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserClientFallback implements UserClient {
 
-    static Logger log = LogManager.getLogger(com.cab.scclient.feign.fallBack.UserClientFallBackFactory.class);
+    static Logger log = LogManager.getLogger(UserClientFallback.class);
 
     @Override
     public String get(Long id) {

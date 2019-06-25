@@ -1,4 +1,4 @@
-package com.cab.common.beans.base;
+package com.cab.common.base.config;
 
 import java.util.HashMap;
 import java.util.Map;
