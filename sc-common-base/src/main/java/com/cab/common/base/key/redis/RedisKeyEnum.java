@@ -1,4 +1,4 @@
-package com.cab.lib.redis;
+package com.cab.common.base.key.redis;
 
 
 import com.cab.common.base.config.TimeConfig;
