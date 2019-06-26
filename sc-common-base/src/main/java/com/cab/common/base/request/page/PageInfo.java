@@ -68,4 +68,5 @@ public class PageInfo<T> implements Serializable {
     public static Integer getEnd(Integer page, Integer pageSize){
         return  page * pageSize;
     }
+
 }
