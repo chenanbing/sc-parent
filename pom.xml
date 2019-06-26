@@ -35,7 +35,7 @@
         <module>sc-common-utils</module>
         <module>sc-common-beans</module>
         <module>sc-lib</module>
-        <module>sc-common-base</module>
+        <module>sc-common-config</module>
     </modules>
 
     <dependencies>
