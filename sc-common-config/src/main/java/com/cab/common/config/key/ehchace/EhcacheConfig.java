@@ -1,4 +1,4 @@
-package com.cab.common.base.key.ehchace;
+package com.cab.common.config.key.ehchace;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.cab.common.base.config;
+package com.cab.common.config.base;
 
 /**
  */

@@ -1,4 +1,4 @@
-package com.cab.common.base.request.page;
+package com.cab.common.config.request.page;
 
 import java.io.Serializable;
 import java.util.List;

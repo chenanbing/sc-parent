@@ -1,4 +1,4 @@
-package com.cab.common.base.exception;
+package com.cab.common.config.exception;
 
 /**
  */

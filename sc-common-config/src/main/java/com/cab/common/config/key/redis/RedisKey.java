@@ -1,6 +1,6 @@
-package com.cab.common.base.key.redis;
+package com.cab.common.config.key.redis;
 
-import com.cab.common.base.config.BaseConfig;
+import com.cab.common.config.base.BaseConfig;
 
 public class RedisKey {
     private String key;

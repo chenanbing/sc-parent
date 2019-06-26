@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cab</groupId>
-    <artifactId>sc-common-base</artifactId>
+    <artifactId>sc-common-config</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 

@@ -1,7 +1,7 @@
-package com.cab.common.base.key.redis;
+package com.cab.common.config.key.redis;
 
 
-import com.cab.common.base.config.TimeConfig;
+import com.cab.common.config.base.TimeConfig;
 
 /**
  */

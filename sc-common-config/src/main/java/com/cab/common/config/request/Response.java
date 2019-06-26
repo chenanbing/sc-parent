@@ -1,7 +1,7 @@
-package com.cab.common.base.request;
+package com.cab.common.config.request;
 
 
-import com.cab.common.base.code.ErrorCodeEnum;
+import com.cab.common.config.code.ErrorCodeEnum;
 
 import java.io.Serializable;
 

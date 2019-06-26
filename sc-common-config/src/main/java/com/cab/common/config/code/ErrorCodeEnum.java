@@ -1,6 +1,4 @@
-package com.cab.common.base.code;
-
-import com.cab.common.base.request.Response;
+package com.cab.common.config.code;
 
 import java.util.HashMap;
 import java.util.Map;

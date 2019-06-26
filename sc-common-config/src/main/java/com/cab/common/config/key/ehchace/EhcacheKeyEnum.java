@@ -1,6 +1,6 @@
-package com.cab.common.base.key.ehchace;
+package com.cab.common.config.key.ehchace;
 
-import com.cab.common.base.config.TimeConfig;
+import com.cab.common.config.base.TimeConfig;
 
 /**
  */
