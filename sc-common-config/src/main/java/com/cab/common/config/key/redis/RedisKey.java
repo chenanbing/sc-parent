@@ -51,7 +51,7 @@ public class RedisKey {
         this.args = args;
     }
 
-    public String get() {
+    public String getKeyStr() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(this.getKey());
         if (args == null) {

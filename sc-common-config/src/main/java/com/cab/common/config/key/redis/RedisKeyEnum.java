@@ -53,7 +53,7 @@ public enum RedisKeyEnum {
 
     public String getKey(Object... args) {
         RedisKey redisKey = this.get(args);
-        return redisKey.get();
+        return redisKey.getKeyStr();
     }
 
     public RedisKey get(Object... args) {
@@ -69,6 +69,6 @@ public enum RedisKeyEnum {
                 '}';
     }
     public static void main(String[] args) {
-        System.err.println(RedisKeyEnum.USER_TOKEN.get("a", "b", "c", "d", 3333).get());
+        System.err.println(RedisKeyEnum.USER_TOKEN.get("a", "b", "c", "d", 3333).getKeyStr());
     }
 }
