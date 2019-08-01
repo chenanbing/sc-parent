@@ -1,7 +1,7 @@
 package com.cab.common.beans.database.enums;
 
 /**
- * @Description: 消息推送状态
+ * @Description: 用户状态
  * @Auther: Administrator
  * @Date: 2018/9/13
  */

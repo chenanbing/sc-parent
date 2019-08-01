@@ -55,7 +55,7 @@
 
         <dependency>
             <groupId>com.cab</groupId>
-            <artifactId>sc-common-config</artifactId>
+            <artifactId>sc-common-base</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

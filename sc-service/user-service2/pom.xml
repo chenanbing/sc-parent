@@ -9,9 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>user-service2</artifactId>
+    <artifactId>user-service</artifactId>
+    <packaging>jar</packaging>
 
-    <name>user-service2</name>
+    <name>user-service</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -45,14 +46,27 @@
             <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
         </dependency>
 
-        <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-amqp</artifactId>
-    </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.cab</groupId>
+            <artifactId>sc-common-base</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.cab</groupId>
+            <artifactId>lib-redis</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>user-service2</finalName>
+        <finalName>user-service</finalName>
     </build>
 </project>

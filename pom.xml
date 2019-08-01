@@ -29,13 +29,12 @@
     <modules>
         <module>sc-eureka</module>
         <module>sc-service</module>
-        <module>sc-client</module>
         <module>sc-config</module>
         <module>sc-gateway</module>
         <module>sc-common-utils</module>
         <module>sc-common-beans</module>
         <module>sc-lib</module>
-        <module>sc-common-config</module>
+        <module>sc-common-base</module>
     </modules>
 
     <dependencies>
