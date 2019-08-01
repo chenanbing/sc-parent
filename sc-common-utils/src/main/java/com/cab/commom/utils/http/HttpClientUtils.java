@@ -37,11 +37,8 @@ public class HttpClientUtils {
     private static int maxConnTotal = 999;   //最大不要超过1000
     private static int maxConnPerRoute = 512;//实际的单个连接池大小，如tps定为50，那就配置50
 
-    private static RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(connectTimeout).
-            setConnectionRequestTimeout(connectionRequestTimeout).setSocketTimeout(socketTimeout).build();
-    private static CloseableHttpClient client = HttpClients.custom().setDefaultRequestConfig(requestConfig)
-            .setMaxConnTotal(maxConnTotal)
-            .setMaxConnPerRoute(maxConnPerRoute).build();
+    private static RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(connectTimeout).setConnectionRequestTimeout(connectionRequestTimeout).setSocketTimeout(socketTimeout).build();
+    private static CloseableHttpClient client = HttpClients.custom().setDefaultRequestConfig(requestConfig).setMaxConnTotal(maxConnTotal).setMaxConnPerRoute(maxConnPerRoute).build();
 
     /**
      * @Title: sendPost

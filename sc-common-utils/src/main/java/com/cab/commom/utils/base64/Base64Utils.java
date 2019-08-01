@@ -4,6 +4,7 @@ import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 
 /**
  * base64的算法
@@ -11,6 +12,11 @@ import java.io.UnsupportedEncodingException;
  */
 public class Base64Utils {
 
+    /**
+     * 加密
+     * @param str
+     * @return
+     */
     public static String encode(String str) {
         byte[] b = null;
         String s = null;
@@ -25,7 +31,11 @@ public class Base64Utils {
         return s;
     }
 
-    // 解密
+    /**
+     * 解密
+     * @param s
+     * @return
+     */
     public static String decode(String s) {
         byte[] b = null;
         String result = null;
@@ -41,5 +51,11 @@ public class Base64Utils {
         return result;
     }
 
+    public static void main(String[] args) {
+        String str = encode("你好呀");
+        System.out.println(str);
+        System.out.println(decode(str));
+
+    }
 
 }

@@ -59,6 +59,12 @@
             <artifactId>guava</artifactId>
             <version>26.0-jre</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.cab</groupId>
+            <artifactId>sc-common-base</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

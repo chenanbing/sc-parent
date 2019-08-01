@@ -43,6 +43,7 @@ public class JsonUtils {
 
     /**
      * JSON转换为对象-针对泛型的类型
+     * RestResponse<Base64Utils> r = JsonUtils.json2Bean(str4,new TypeToken<RestResponse<Base64Utils>>(){}.getType());
      * @param json
      * @param type
      * @return
@@ -52,47 +53,75 @@ public class JsonUtils {
     }
 
     /**
-     * 转成list
-     *
+     * 转成list List<Base64Utils>  l = JsonUtils.jsonToList(str2,new TypeToken<List<Base64Utils>>(){});
      * @param json
-     * @param clazz
+     * @param typeToken
      * @return
      */
-    public static <T> List<T> jsonToList(String json, Class<T> clazz) {
-        List<T> list = gson.fromJson(json, new TypeToken<List<T>>() {}.getType());
+    public static <T> List<T> jsonToList(String json, TypeToken<List<T>> typeToken) {
+        List<T> list = gson.fromJson(json, typeToken.getType());
         return list;
     }
 
     /**
-     * 转成set
-     *
+     * 转成set Set<Base64Utils>  s = JsonUtils.jsonToSet(str2,new TypeToken<Set<Base64Utils>>(){});
      * @param json
-     * @param clazz
+     * @param typeToken
      * @return
      */
-    public static <T> Set<T> jsonToSet(String json, Class<T> clazz) {
-        Set<T> set = gson.fromJson(json, new TypeToken<Set<T>>() {}.getType());
+    public static <T> Set<T> jsonToSet(String json,TypeToken<Set<T>> typeToken) {
+        Set<T> set = gson.fromJson(json, typeToken.getType());
         return set;
     }
 
     /**
-     * 转成map的
-     *
+     * 转成map的 Map<String, Base64Utils> m = JsonUtils.jsonToMap(str,new TypeToken<Map<String,Base64Utils>>(){});
      * @param json
-     * @param clazz
+     * @param typeToken
      * @return
      */
-    public static <T> Map<String, T> jsonToMap(String json, Class<T> clazz) {
-        Map<String, T> map = gson.fromJson(json, new TypeToken<Map<String, T>>() {}.getType());
+    public static <K,T> Map<K, T> jsonToMap(String json, TypeToken<Map<K,T>> typeToken) {
+        Map<K, T> map = gson.fromJson(json,typeToken.getType() );
         return map;
     }
 
 
-//    public static void main(String[] args) {
-//        JSONObject jsonObject = new JSONObject();
-//        jsonObject.put("aaa","==");
-//        System.err.println(jsonObject.toJSONString());
-//    }
+    public static void main(String[] args) {
+//        Map<String, Base64Utils> map = new HashMap<>();
+//        map.put("1",new Base64Utils());
+//        String str = JsonUtils.bean2Json(map);
+//        System.out.println(str);
+//
+//        Map<String, Base64Utils> m = JsonUtils.jsonToMap(str,new TypeToken<Map<String,Base64Utils>>(){
+//        });
+//        System.out.println(1);
+//
+//        Set<Base64Utils> set = new HashSet<>();
+//        set.add(new Base64Utils());
+//        String str2 = JsonUtils.bean2Json(set);
+//        System.out.println(str2);
+//        Set<Base64Utils>  s = JsonUtils.jsonToSet(str2,new TypeToken<Set<Base64Utils>>(){});
+//        System.out.println(2);
+//
+//
+//        List<Base64Utils> list = new ArrayList<>();
+//        list.add(new Base64Utils());
+//        String str3 = JsonUtils.bean2Json(list);
+//        System.out.println(str3);
+//        List<Base64Utils>  l = JsonUtils.jsonToList(str2,new TypeToken<List<Base64Utils>>(){});
+//        System.out.println(3);
+//
+//        RestResponse<Base64Utils> restResponse = new RestResponse<>();
+//        restResponse.setCode(0);
+//        Base64Utils  base64Utils = new Base64Utils();
+//        restResponse.setData(base64Utils);
+//
+//        String str4 = JsonUtils.bean2Json(restResponse);
+//        RestResponse<Base64Utils> r = JsonUtils.json2Bean(str4,new TypeToken<RestResponse<Base64Utils>>(){}.getType());
+//        System.out.println(4);
+
+
+    }
 
 
 }
