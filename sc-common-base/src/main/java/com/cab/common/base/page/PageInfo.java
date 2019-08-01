@@ -1,9 +1,9 @@
-package com.cab.common.base.request.page;
+package com.cab.common.base.page;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class PageResponse<T> implements Serializable {
+public class PageInfo<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -31,6 +31,11 @@ public class PageResponse<T> implements Serializable {
      * 查询数据列表
      */
     private List<T> records ;
+
+    /**
+     * 查询参数
+     */
+    private T condition;
 
     public int getTotal() {
         return total;
@@ -70,5 +75,13 @@ public class PageResponse<T> implements Serializable {
 
     public void setRecords(List<T> records) {
         this.records = records;
+    }
+
+    public T getCondition() {
+        return condition;
+    }
+
+    public void setCondition(T condition) {
+        this.condition = condition;
     }
 }

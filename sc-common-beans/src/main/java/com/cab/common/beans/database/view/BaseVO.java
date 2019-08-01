@@ -1,8 +1,8 @@
-package com.cab.common.base.request;
+package com.cab.common.beans.database.view;
 
 import java.io.Serializable;
 
-public class BaseRequest implements Serializable {
+public class BaseVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

@@ -1,4 +1,4 @@
-package com.cab.common.base.request;
+package com.cab.common.base.code;
 
 
 import java.io.Serializable;
