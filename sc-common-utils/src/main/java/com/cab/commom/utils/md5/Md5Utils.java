@@ -1,11 +1,11 @@
 package com.cab.commom.utils.md5;
 
 import com.google.common.collect.Ordering;
-import com.google.common.hash.Hashing;
-import org.apache.commons.codec.Charsets;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,36 +17,52 @@ public class Md5Utils {
     /**
      * 获取加密
      */
-    public static String getMd5(String pwd) {
-        String md = Hashing.md5().newHasher().putString(pwd, Charsets.UTF_8).hash().toString();
-        return md;
+    public static String sign(String content) {
+        return sign(content, "UTF-8");
     }
 
-    public static String randomPassword() {
-        String password = RandomStringUtils.randomNumeric(32);
-        return getMd5(password);
+    public static String sign(String content, String charset) {
+        return sign(getContentBytes(content, charset));
+    }
+
+    public static String sign(byte[] bytes) {
+        return DigestUtils.md5Hex(bytes);
+    }
+
+    /**
+     * @param content
+     * @param charset
+     * @return
+     * @throws UnsupportedEncodingException
+     */
+    private static byte[] getContentBytes(String content, String charset) {
+        if (charset == null || "".equals(charset)) {
+            return content.getBytes();
+        }
+        try {
+            return content.getBytes(charset);
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException("MD5签名过程中出现错误,指定的编码集不对,您目前指定的编码集是:" + charset);
+        }
     }
 
     /**
      * 获取随机盐
-     *
      * @return
      */
     public static String getSalt() {
         String salt = RandomStringUtils.randomNumeric(8);
 //        String salt = "admin" + "@gfcm";
-        return getMd5(salt);
+        return sign(salt);
     }
 
     /**
-     * 获取密码
-     *
-     * @param password
+     * @param content
      * @param salt
      * @return
      */
-    public static String getPassword(String password, String salt) {
-        String allString = password + salt;
+    public static String getSaltContent(String content, String salt) {
+        String allString = content + salt;
         List<String> list = Arrays.asList(allString.split(""));
 
         Ordering<Object> usingToStringOrdering = Ordering.usingToString();
@@ -58,10 +74,23 @@ public class Md5Utils {
             stringBuilder.append(word);
         }
 
-        return getMd5(stringBuilder.toString());
+        return sign(stringBuilder.toString());
+    }
+
+    /**
+     * 获取密码
+     *
+     * @param password
+     * @return
+     */
+    public static String getPassword(String password) {
+        return getSaltContent(password,getSalt());
     }
 
     public static void main(String[] args) {
+
+//        System.out.println(sign("123456"));
+
     }
 
 }
