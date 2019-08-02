@@ -1,0 +1,61 @@
+spring:
+  redis:
+    host: 10.11.0.100
+    port: 6379
+    database: 0
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+#      default-filters:
+#      - Authorize=true
+      routes:
+      - id: user
+        uri: lb://user-client
+        predicates:
+        - Path=/user/**
+        filters:
+        - name: RequestRateLimiter
+          args:
+            key-resolver: '#{@hostAddrKeyResolver}'
+            redis-rate-limiter.replenishRate: 1500
+            redis-rate-limiter.burstCapacity: 3000
+        #熔断过滤器
+        - name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: forward:/defaultfallback
+#        - Authorize=true
+        - StripPrefix=0
+      - id: 163                     #网关路由到网易官网
+        uri: http://www.163.com/
+        predicates:
+        - Path=/163/**
+
+#熔断器配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 3000
+  shareSecurityContext: true
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://cab:cab19891023@localhost:8761/eureka/
+
+
+#网关日志输出
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG

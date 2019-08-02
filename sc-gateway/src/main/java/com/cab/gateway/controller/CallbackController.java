@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class TestController {
+public class CallbackController {
 
     @RequestMapping("/defaultfallback")
     public Map<String,String> defaultfallback(){
