@@ -11,7 +11,6 @@
 
     <groupId>com.cab</groupId>
     <artifactId>sc-eureka</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>sc-eureka</name>
     <description>Demo project for Spring Boot</description>
 
@@ -23,11 +22,32 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
+        <!--注册中心账号密码设置-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-security</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-
+            <!--解决主清单错误-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.cab.eureka.ScEurekaApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
