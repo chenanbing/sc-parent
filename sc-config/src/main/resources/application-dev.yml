@@ -1,0 +1,4 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://cab:cab19891023@localhost:8761/eureka/
