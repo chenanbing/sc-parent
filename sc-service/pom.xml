@@ -18,7 +18,8 @@
     <url>http://www.example.com</url>
 
     <modules>
-        <module>user-service</module>
+        <module>service-user</module>
+        <module>service-user2</module>
     </modules>
 
     <properties>
