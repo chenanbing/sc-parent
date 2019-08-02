@@ -1,7 +1,5 @@
 package com.cab.lib.redis;
 
-import com.cab.common.base.key.redis.RedisKey;
-import com.cab.common.base.key.redis.RedisKeyEnum;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.BoundValueOperations;
