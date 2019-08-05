@@ -1,8 +1,8 @@
 server:
-  port: 8765
+  port: 8764
 
 spring:
   application:
-    name: service-user
+    name: sc-service-user
   profiles:
     active: dev

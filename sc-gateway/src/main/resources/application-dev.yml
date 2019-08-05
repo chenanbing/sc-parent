@@ -9,28 +9,48 @@ spring:
         locator:
           enabled: true
           lowerCaseServiceId: true
-#      default-filters:
-#      - Authorize=true
+      #默认过滤器
+      default-filters:
+#      #是否忽略匹配前缀
+#      - StripPrefix=1
+      #限流过滤器
+      - name: RequestRateLimiter
+        args:
+          key-resolver: '#{@hostAddrKeyResolver}'
+          redis-rate-limiter.replenishRate: 1500
+          redis-rate-limiter.burstCapacity: 3000
+      #熔断过滤器
+      - name: Hystrix
+        args:
+          name: fallbackcmd
+          fallbackUri: forward:/defaultfallback
+      #自定义过滤器，登陆过滤器
+      - Authorize=true
       routes:
+      #------------------------------------------------------------------------
       - id: user
-        uri: lb://user-service
+        uri: lb://sc-service-user
         predicates:
         - Path=/user/**
         filters:
-        - name: RequestRateLimiter
-          args:
-            key-resolver: '#{@hostAddrKeyResolver}'
-            redis-rate-limiter.replenishRate: 1500
-            redis-rate-limiter.burstCapacity: 3000
-        #熔断过滤器
-        - name: Hystrix
-          args:
-            name: fallbackcmd
-            fallbackUri: forward:/defaultfallback
-#        - Authorize=true
+        #是否忽略匹配前缀
         - StripPrefix=0
+#        #限流过滤器
+#        - name: RequestRateLimiter
+#          args:
+#            key-resolver: '#{@hostAddrKeyResolver}'
+#            redis-rate-limiter.replenishRate: 1500
+#            redis-rate-limiter.burstCapacity: 3000
+#        #熔断过滤器
+#        - name: Hystrix
+#          args:
+#            name: fallbackcmd
+#            fallbackUri: forward:/defaultfallback
+#        #自定义过滤器，登陆过滤器
+#        - Authorize=true
 
 
+      #------------------------------------------------------------------------
       - id: 163                     #网关路由到网易官网
         uri: http://www.163.com/
         predicates:

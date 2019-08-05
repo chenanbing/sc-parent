@@ -18,8 +18,8 @@
     <url>http://www.example.com</url>
 
     <modules>
-        <module>service-user</module>
-        <module>service-user2</module>
+        <module>sc-service-user</module>
+        <module>sc-service-user2</module>
     </modules>
 
     <properties>

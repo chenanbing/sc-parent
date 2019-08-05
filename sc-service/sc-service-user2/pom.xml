@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service-user2</artifactId>
+    <artifactId>sc-service-user2</artifactId>
     <packaging>jar</packaging>
 
-    <name>service-user2</name>
+    <name>sc-service-user2</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -72,5 +72,24 @@
     </dependencies>
 
     <build>
+        <plugins>
+            <!--解决主清单错误-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.cab.service.user.UserServiceApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>
