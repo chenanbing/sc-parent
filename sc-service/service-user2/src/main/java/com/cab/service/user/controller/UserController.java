@@ -19,7 +19,7 @@ public class UserController {
 
 
 
-    @RequestMapping(value = "/getById")
+    @RequestMapping(value = "/user/getById")
     public String get(@RequestParam(value="id",required=false) Long id){
         try {
 //            Thread.sleep(6000);

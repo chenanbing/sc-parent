@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      profile: test
+      profile: dev
       label: master
       discovery:
         enabled: true
@@ -11,4 +11,4 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://cab:cab19891023@localhost:8761/eureka/
