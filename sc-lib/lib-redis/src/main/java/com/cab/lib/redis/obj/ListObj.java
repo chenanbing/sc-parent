@@ -1,4 +1,4 @@
-package com.cab.lib.redis;
+package com.cab.lib.redis.obj;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class ListObj implements Serializable {
 
-    public List list ;
+    private List list ;
 
     public ListObj(){
         this.list = new ArrayList();

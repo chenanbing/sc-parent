@@ -1,4 +1,4 @@
-package com.cab.lib.redis;
+package com.cab.lib.redis.obj;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -8,7 +8,7 @@ import java.util.Set;
  */
 public class SetObj implements Serializable {
 
-    public Set set;
+    private Set set;
 
     public SetObj() {
         this.set = new HashSet();

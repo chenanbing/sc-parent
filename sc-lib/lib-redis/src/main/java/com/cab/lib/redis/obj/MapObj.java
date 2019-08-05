@@ -1,4 +1,4 @@
-package com.cab.lib.redis;
+package com.cab.lib.redis.obj;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public class MapObj implements Serializable {
 
-    public Map map;
+    private Map map;
 
     public MapObj() {
         this.map = new HashMap();
