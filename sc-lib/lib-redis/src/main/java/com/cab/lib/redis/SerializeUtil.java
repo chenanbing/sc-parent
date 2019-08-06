@@ -17,6 +17,21 @@ public class SerializeUtil {
             return byt;
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            if(bai!=null){
+                try {
+                    bai.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(obi!= null){
+                try {
+                    obi.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return null;
     }
@@ -25,13 +40,28 @@ public class SerializeUtil {
     public static Object unserialize(byte[] byt) {
         ObjectInputStream oii = null;
         ByteArrayInputStream bis = null;
-        bis = new ByteArrayInputStream(byt);
         try {
+            bis = new ByteArrayInputStream(byt);
             oii = new ObjectInputStream(bis);
             Object obj = oii.readObject();
             return obj;
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if(bis!= null){
+                try {
+                    bis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(oii!= null){
+                try {
+                    oii.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return null;
     }
